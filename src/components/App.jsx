@@ -1,12 +1,14 @@
 import '../styles/App.scss';
 
-import castilloHarry from '../../src/images/castillo-harry.webp'
+import castleHarry from '../../src/images/castillo-harry.webp';
+import harryLetter from '../../src/images/letras-doradas.png';
 
 function App() {
   return (
     <div>
       <header>
-        <img src={castilloHarry} alt="Imagen castillo de Harry Potter"></img>
+        <img src={castleHarry} alt="Imagen castillo de Harry Potter" />
+        <img src={harryLetter} alt="Imagen letras doradas de Harry Potter" />
       </header>
       <main>
         <form>
@@ -23,7 +25,15 @@ function App() {
             </select>
           </div>
         </form>
-        <section></section>
+        <section>
+          <h2>Lista de personajes</h2>
+          <ul>
+            <li></li>
+            <li></li>
+            <li></li>
+            <li></li>
+          </ul>
+        </section>
       </main>
       <footer> 🧹 Adalab promo Betty 2024 🧹</footer>
     </div>
