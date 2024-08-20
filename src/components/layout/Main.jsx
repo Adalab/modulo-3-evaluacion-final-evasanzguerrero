@@ -4,7 +4,7 @@ import Filters from "../Filters";
 function Main({characters}) {
 
   const [ searchName, setSearchName ] = useState( '' );
-  const [ searchHouse, setSearchHouse ] = useState( '' )
+  const [ searchHouse, setSearchHouse ] = useState( '' );
 
   const filteredCharacters = characters
       .filter(characterObj => searchHouse === 'NS/NC' || characterObj.house.toLocaleLowerCase().startsWith(searchHouse.toLocaleLowerCase()))
