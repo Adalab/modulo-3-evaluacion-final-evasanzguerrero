@@ -13,9 +13,6 @@ function App() {
   
   const [ characters, setCharacters ] = useState(charactersJson);
   
-  
-  
-
   return (
     <div>
       <Header harryLetter={harryLetter}/>
