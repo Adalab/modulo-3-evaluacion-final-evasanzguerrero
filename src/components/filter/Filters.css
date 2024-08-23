@@ -1,6 +1,11 @@
-.search {
+.search_container {
   display: flex;
   justify-content: center;
+}
+
+.search {
+  display: flex;
+  justify-content: space-between;
   align-items: center;
   font-size: 30px;
   gap: 30px
