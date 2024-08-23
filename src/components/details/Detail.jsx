@@ -1,3 +1,4 @@
+import './Detail.css'
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
@@ -5,10 +6,9 @@ function Detail({findCharacterByID}) {
 
   const params = useParams();
   const character = findCharacterByID(params.id);
-  console.log(character)
 
   const translateAlive = (alive) => {
-    if (alive === true) {
+    if (alive) {
       return 'Vivo';
     } else {
       return 'Muerto';
@@ -28,30 +28,35 @@ function Detail({findCharacterByID}) {
     } else {
       return 'Humano';
     } 
-       
-  
+  }
+  if(character === undefined) {
+    return (
+      <div>
+        <Link to="/"  className="volver" >Volver</Link>
+        <p>No se ha encontrado el personaje</p>
+      </div>
+    );
   }
   return (
     <>
-    
-    <div className="container_details">
-      <Link to="/"  className="return" >Volver</Link>
-      <img
-        className="character_img info_img"
-        src={
-          character.image ||
-          "https://www.lavanguardia.com/andro4all/hero/2024/02/harry-potter.1708702569.2268.jpg?width=768&aspect_ratio=16:9&format=nowebp"
-        }
-        alt={`Imagen de ${character.name}`}
-      />
-      <article className="info_detail">
-        <p className="details">Nombre: {character.name}</p>
-        <p className="details">Estatus: {translateAlive(character.alive)} - <i className="fa-solid fa-heart-pulse"/></p>
-        <p className="details">Especies: {translateSpecies(character.species)} - <i className="fa-solid fa-user"/></p>
-        <p className="details">Genero: {translaterGender(character.gender)}</p>
-        <p className="details">Casa: {character.house}</p>
-      </article>
-    </div>
+      <div className="container_details">
+        <Link to="/"  className="return" >Volver</Link>
+        <img
+          className="character_img info_img"
+          src={
+            character.image ||
+            "https://www.lavanguardia.com/andro4all/hero/2024/02/harry-potter.1708702569.2268.jpg?width=768&aspect_ratio=16:9&format=nowebp"
+          }
+          alt={`Imagen de ${character.name}`}
+        />
+        <article className="info_detail">
+          <p className="details">Nombre: {character.name}</p>
+          <p className="details">Estatus: {translateAlive(character.alive)} - <i className="fa-solid fa-heart-pulse"/></p>
+          <p className="details">Especies: {translateSpecies(character.species)} - <i className="fa-solid fa-user"/></p>
+          <p className="details">Genero: {translaterGender(character.gender)}</p>
+          <p className="details">Casa: {character.house}</p>
+        </article>
+      </div>
     </>
   );
 }

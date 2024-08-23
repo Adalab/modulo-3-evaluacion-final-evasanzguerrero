@@ -1,10 +1,26 @@
 import {Routes, Route} from 'react-router-dom';
 import Home from "./home/Home";
 import Detail from './details/Detail';
+import {useState, useEffect} from "react";
+import { getCharacterByID, getCharactersApi } from '../services/charactersApi';
 
-function Main({characters}) {
+function Main() {
 
-  const findCharacterByID = (id) => characters.find(character => character.id === id);
+  const [ characters, setCharacters ] = useState([]);
+
+  useEffect ( () => {
+    getCharactersApi()
+     .then(responsedata => {
+      setCharacters(responsedata);
+    });
+  } , []);
+
+  const findCharacterByID = (id) => {
+    if(characters.length === 0) {
+      return getCharacterByID(id)
+    }
+    return characters.find(character => character.id === id);
+  }
 
   return (
     <main>
