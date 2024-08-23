@@ -1,0 +1,32 @@
+.search {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  gap: 30px
+}
+
+.search_margin {
+  margin-top: 20px;
+}
+
+.search_form {
+  width: 600px;
+  height: 50px;
+  border:none;
+  border: 3px solid black;
+  outline: none;
+  background-color:#e3e4e5;
+  font-size: 30px;
+  gap:50px
+}
+
+.select_house {
+  width: 600px;
+  height: 50px;
+  border:none;
+  border: 3px solid black;
+  outline: none;
+  background-color:#e3e4e5;
+  font-size: 30px;
+}

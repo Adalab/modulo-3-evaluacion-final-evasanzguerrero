@@ -4,8 +4,8 @@ import CharacterList from "../character/CharacterList";
 
 function Home({characters}) {
 
-  const [ searchName, setSearchName ] = useState( '' );
-  const [ searchHouse, setSearchHouse ] = useState( '' );
+  const [ searchName, setSearchName ] = useState('');
+  const [ searchHouse, setSearchHouse ] = useState('gr');
 
   const filteredCharacters = characters
       .filter(characterObj => searchHouse === 'NS/NC' || characterObj.house.toLocaleLowerCase().startsWith(searchHouse.toLocaleLowerCase()))
