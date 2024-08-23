@@ -8,10 +8,14 @@ function Home({characters}) {
   const [ searchGender, setSearchGender ] = useState('');
   const [ searchHouse, setSearchHouse ] = useState('gr');
 
+  const nameFilter = searchName || localStorage.getItem("searchName")
+  const genderFilter = searchGender || localStorage.getItem("searchGender")
+  const houseFilter = localStorage.getItem("searchHouse") || searchHouse
+
   const filteredCharacters = characters
-      .filter(characterObj => searchHouse === 'NS/NC' || characterObj.house.toLocaleLowerCase().startsWith(searchHouse.toLocaleLowerCase()))
-      .filter(characterObj => searchGender === "" || characterObj.gender.toLocaleLowerCase() === searchGender.toLocaleLowerCase())
-      .filter(characterObj => characterObj.name.toLocaleLowerCase().includes(searchName.toLocaleLowerCase())).sort((a, b) => {
+      .filter(characterObj => houseFilter === 'NS/NC' || characterObj.house.toLocaleLowerCase().startsWith(houseFilter.toLocaleLowerCase()))
+      .filter(characterObj => genderFilter === "" || characterObj.gender.toLocaleLowerCase() === genderFilter.toLocaleLowerCase())
+      .filter(characterObj => characterObj.name.toLocaleLowerCase().includes(nameFilter)).sort((a, b) => {
         if (a.name < b.name) {
           return -1;
         }
@@ -20,15 +24,15 @@ function Home({characters}) {
         }
         return 0;
       });
-
+      
   return (
     <>
       <Filters 
-        searchName={searchName}   
+        searchName={nameFilter}   
         setSearchName={setSearchName}
-        searchGender={searchGender}
+        searchGender={genderFilter}
         setSearchGender={setSearchGender}
-        searchHouse={searchHouse}
+        searchHouse={houseFilter}
         setSearchHouse={setSearchHouse}
       />
       <CharacterList filteredCharacters={filteredCharacters} searchName={searchName}/>

@@ -4,17 +4,23 @@ function Filters({ searchName, setSearchName, searchGender, setSearchGender, sea
 
   const handleFilterCharactersByName = (ev) => {
     ev.preventDefault()
-    setSearchName(ev.currentTarget.value);
+    const searchName = ev.currentTarget.value;
+    setSearchName(searchName);
+    localStorage.setItem("searchName", searchName);
   };
 
   const handleFilterCharactersByGender = (ev) => {
     ev.preventDefault()
+    const searchGender = ev.currentTarget.value;
     setSearchGender(ev.currentTarget.value);
+    localStorage.setItem("searchGender", searchGender);
   };
 
   const handleFilterCharactersByHouse = (ev) => {
     ev.preventDefault()
-    setSearchHouse(ev.currentTarget.value);
+    const searchHouse = ev.currentTarget.value;
+    setSearchHouse(searchHouse);
+    localStorage.setItem("searchHouse", searchHouse)
   };
 
   const handleSubmit = (ev) => {
@@ -25,6 +31,9 @@ function Filters({ searchName, setSearchName, searchGender, setSearchGender, sea
     setSearchGender("")
     setSearchHouse("")
     setSearchName("")
+    localStorage.setItem("searchHouse", "");
+    localStorage.setItem("searchGender", "");
+    localStorage.setItem("searchName", "");
   };
 
   return (
@@ -51,7 +60,7 @@ function Filters({ searchName, setSearchName, searchGender, setSearchGender, sea
             id="gender"
             onChange={handleFilterCharactersByGender}
           >
-            <option selected={true} value=""></option>
+            <option value=""></option>
             <option value="female">Mujer</option>
             <option value="male">Hombre</option>
           </select>
@@ -65,7 +74,7 @@ function Filters({ searchName, setSearchName, searchGender, setSearchGender, sea
             id="house"
             onChange={handleFilterCharactersByHouse}
           >
-            <option selected={true} value="gr">Gryffindor</option>
+            <option value="gr">Gryffindor</option>
             <option value="sl">Slytherin</option>
             <option value="hu">Hufflepuff</option>
             <option value="ra">Ravenclaw</option>
