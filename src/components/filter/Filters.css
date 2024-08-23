@@ -36,3 +36,17 @@
   background-color:#e3e4e5;
   font-size: 30px;
 }
+
+.search_reset {
+  margin-top: 30px;
+  border: 2px solid black;
+  width: 100%;
+  border-radius: 10px;
+  height: 50px;
+  font-size: 30px;
+}
+
+.search_reset:hover {
+  background-color: #979256;
+  color: white;
+}

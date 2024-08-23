@@ -9,7 +9,7 @@ function CharacterCard({character}) {
           className="character_img"
           src={
             character.image ||
-            "https://www.lavanguardia.com/andro4all/hero/2024/02/harry-potter.1708702569.2268.jpg?width=768&aspect_ratio=16:9&format=nowebp"
+            `https://via.placeholder.com/200x200/ffffff/979256/?text=${character.name.replace(" ", "%0A")}`
           }
           alt={`Imagen de ${character.name}`}
         />

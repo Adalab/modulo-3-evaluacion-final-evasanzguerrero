@@ -1,6 +1,6 @@
 import './Filters.css'
 
-function Filters({ searchName, setSearchName, searchGender, setSearchGender, setSearchHouse }) {
+function Filters({ searchName, setSearchName, searchGender, setSearchGender, searchHouse, setSearchHouse }) {
 
   const handleFilterCharactersByName = (ev) => {
     ev.preventDefault()
@@ -21,6 +21,12 @@ function Filters({ searchName, setSearchName, searchGender, setSearchGender, set
     ev.preventDefault();
   };
 
+  const handleReset = (ev) => {
+    setSearchGender("")
+    setSearchHouse("")
+    setSearchName("")
+  };
+
   return (
     
     <div className="search_container">
@@ -39,6 +45,7 @@ function Filters({ searchName, setSearchName, searchGender, setSearchGender, set
         <div className="search search_margin">
           <label htmlFor="search_by_gender">Busca por género: </label>
           <select
+            value={searchGender}
             className="search_form"
             name="gender"
             id="gender"
@@ -52,6 +59,7 @@ function Filters({ searchName, setSearchName, searchGender, setSearchGender, set
         <div className="search search_margin">
           <label htmlFor="label_house">Selecciona una casa: </label>
           <select
+            value={searchHouse}
             className="search_form"
             name="house"
             id="house"
@@ -63,6 +71,7 @@ function Filters({ searchName, setSearchName, searchGender, setSearchGender, set
             <option value="ra">Ravenclaw</option>
           </select>
         </div>
+        <button onClick={handleReset} className="search_reset">Reset</button>
       </form>
     </div>
   );
