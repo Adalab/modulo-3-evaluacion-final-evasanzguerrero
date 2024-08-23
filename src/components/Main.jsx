@@ -17,7 +17,7 @@ function Main() {
 
   const findCharacterByID = (id) => {
     if(characters.length === 0) {
-      return getCharacterByID(id)
+      return getCharacterByID(id);
     }
     return characters.find(character => character.id === id);
   }

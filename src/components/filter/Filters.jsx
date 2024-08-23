@@ -1,26 +1,26 @@
-import './Filters.css'
+import './Filters.css';
 
 function Filters({ searchName, setSearchName, searchGender, setSearchGender, searchHouse, setSearchHouse }) {
 
   const handleFilterCharactersByName = (ev) => {
-    ev.preventDefault()
+    ev.preventDefault();
     const searchName = ev.currentTarget.value;
     setSearchName(searchName);
     localStorage.setItem("searchName", searchName);
   };
 
   const handleFilterCharactersByGender = (ev) => {
-    ev.preventDefault()
+    ev.preventDefault();
     const searchGender = ev.currentTarget.value;
     setSearchGender(ev.currentTarget.value);
     localStorage.setItem("searchGender", searchGender);
   };
 
   const handleFilterCharactersByHouse = (ev) => {
-    ev.preventDefault()
+    ev.preventDefault();
     const searchHouse = ev.currentTarget.value;
     setSearchHouse(searchHouse);
-    localStorage.setItem("searchHouse", searchHouse)
+    localStorage.setItem("searchHouse", searchHouse);
   };
 
   const handleSubmit = (ev) => {
@@ -28,9 +28,9 @@ function Filters({ searchName, setSearchName, searchGender, setSearchGender, sea
   };
 
   const handleReset = (ev) => {
-    setSearchGender("")
-    setSearchHouse("")
-    setSearchName("")
+    setSearchGender("");
+    setSearchHouse("");
+    setSearchName("");
     localStorage.setItem("searchHouse", "");
     localStorage.setItem("searchGender", "");
     localStorage.setItem("searchName", "");

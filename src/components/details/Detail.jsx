@@ -1,4 +1,4 @@
-import './Detail.css'
+import './Detail.css';
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
 
@@ -52,7 +52,7 @@ function Detail({findCharacterByID}) {
         />
         <article className="info_detail">
           <p className="details">Nombre: {character.name}</p>
-          <p className="details">Estatus: {translateAlive(character.alive)} - <i className="fa-solid fa-heart-pulse"/></p>
+          <p className="details">Estatus: {translateAlive(character.alive)} <i className="fa-solid fa-heart-pulse"/></p>
           <p className="details">Especies: {translateSpecies(character.species)} - <i className="fa-solid fa-user"/></p>
           <p className="details">Genero: {translaterGender(character.gender)}</p>
           <p className="details">Casa: {character.house}</p>
