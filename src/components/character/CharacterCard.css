@@ -3,13 +3,17 @@
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  background-color: grey;
+  background-color: #979256;
   text-decoration: none;
+  border-radius: 20px;
+
 }
 
 .character_img {
   width: 300px;
   height: 400px;
+  border-radius: 20px 20px 0 0;
+  border-bottom: 5px solid #C0C0C0;
 }
 
 .character_description {
