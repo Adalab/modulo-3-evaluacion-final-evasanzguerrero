@@ -12,11 +12,11 @@ function App() {
 
 
   useEffect ( () => {
-    fetch('https://hp-api.onrender.com/api/characters/house/gryffindor')
+    fetch('https://hp-api.onrender.com/api/characters')
   .then(response =>response.json())
-  .then(respnsedata => {
-    setCharacters(respnsedata);
-  })
+  .then(responsedata => {
+    setCharacters(responsedata);
+    });
   } , [] );
 
   return (

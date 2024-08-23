@@ -1,26 +1,17 @@
-import { useState } from "react";
-import Filters from "../Filters";
-import CharactersList from "../CharacterList";
+import {Routes, Route} from 'react-router-dom';
+import Home from "./Home";
+import Detail from './Detail';
 
 function Main({characters}) {
 
-  const [ searchName, setSearchName ] = useState( '' );
-  const [ searchHouse, setSearchHouse ] = useState( '' );
-
-  const filteredCharacters = characters
-      .filter(characterObj => searchHouse === 'NS/NC' || characterObj.house.toLocaleLowerCase().startsWith(searchHouse.toLocaleLowerCase()))
-      .filter(characterObj => characterObj.name.toLocaleLowerCase().includes(searchName.toLocaleLowerCase()));
+  const findCharacterByID = (id) => characters.find(character => character.id === id);
 
   return (
     <main>
-      <Filters 
-        searchName={searchName}   
-        setSearchName={setSearchName}
-        setSearchHouse={setSearchHouse}
-      />
-      <section>
-        <CharactersList filteredCharacters={filteredCharacters}/>
-      </section>
+      <Routes>
+        <Route path='/' element={<Home characters={characters}/>}/>
+        <Route path='/detail/:id' element={<Detail findCharacterByID={findCharacterByID}/>}/>
+      </Routes>
     </main>
   );
 }

@@ -1,17 +1,18 @@
-function Filters({ searchName, setSearchName, setSearchHouse }) {
 
+function Filters({ searchName, setSearchName, setSearchHouse }) {
   const handleFilterCharactersByName = (ev) => {
-    setSearchName(ev.currentTarget.value); 
+    setSearchName(ev.currentTarget.value);
   };
 
   const handleFilterCharactersByHouse = (ev) => {
-    setSearchHouse(ev.currentTarget.value); 
+    setSearchHouse(ev.currentTarget.value);
   };
 
-
   return (
-    <form className="container_input">
-      <section className="section">
+    
+    <div>
+      <form>
+        <section className="section">
           <label htmlFor="search">Busca por personaje: </label>
           <input
             className="input_section"
@@ -38,6 +39,7 @@ function Filters({ searchName, setSearchName, setSearchHouse }) {
           </select>
         </div>
       </form>
+    </div>
   );
 }
 
