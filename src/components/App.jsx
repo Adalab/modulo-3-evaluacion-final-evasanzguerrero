@@ -1,10 +1,11 @@
 import '../styles/App.scss';
 import {useState, useEffect} from "react";
 
+import { getCharactersApi } from '../services/charactersApi';
 import harryLetter from '../../src/images/letras-doradas.png';
-import Header from './layout/Header';
-import Main from './layout/Main';
-import Footer from './layout/Footer';
+import Header from './header/Header';
+import Main from './Main';
+import Footer from './footer/Footer';
 
 function App() {
 
@@ -12,10 +13,9 @@ function App() {
 
 
   useEffect ( () => {
-    fetch('https://hp-api.onrender.com/api/characters')
-  .then(response =>response.json())
-  .then(responsedata => {
-    setCharacters(responsedata);
+    getCharactersApi()
+     .then(responsedata => {
+      setCharacters(responsedata);
     });
   } , [] );
 
@@ -23,9 +23,7 @@ function App() {
     <div>
       <Header harryLetter={harryLetter}/>
       <Main characters={characters} />
-      <div className="conta">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   )
 }

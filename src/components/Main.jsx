@@ -1,6 +1,6 @@
 import {Routes, Route} from 'react-router-dom';
-import Home from "./Home";
-import Detail from './Detail';
+import Home from "./home/Home";
+import Detail from './details/Detail';
 
 function Main({characters}) {
 

@@ -7,7 +7,30 @@ function Detail({findCharacterByID}) {
   const character = findCharacterByID(params.id);
   console.log(character)
 
-  const termination = character.gender === 'famale' ? 'a':'o';
+  const translateAlive = (alive) => {
+    if (alive === true) {
+      return 'Vivo';
+    } else {
+      return 'Muerto';
+    }
+  }
+
+  const translaterGender = (gender) => {
+    if (gender === 'female') {
+      return 'Femenino';
+    } else {
+      return 'Masculino';
+    }
+  }
+  const translateSpecies = (especies) => {
+    if (especies === 'female') {
+      return 'Humana';
+    } else {
+      return 'Humano';
+    } 
+       
+  
+  }
   return (
     <>
     
@@ -23,9 +46,9 @@ function Detail({findCharacterByID}) {
       />
       <article className="info_detail">
         <p className="details">Nombre: {character.name}</p>
-        <p className="details">Especie: {character.species}</p>
-        <p className="details">Estatus: {character.alive ? `Viv${termination}`: `Muert${termination}`}</p>
-        <p className="details">Genero: {character.gender}</p>
+        <p className="details">Estatus: {translateAlive(character.alive)} - <i className="fa-solid fa-heart-pulse"/></p>
+        <p className="details">Especies: {translateSpecies(character.species)} - <i className="fa-solid fa-user"/></p>
+        <p className="details">Genero: {translaterGender(character.gender)}</p>
         <p className="details">Casa: {character.house}</p>
       </article>
     </div>

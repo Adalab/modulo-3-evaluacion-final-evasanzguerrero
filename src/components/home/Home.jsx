@@ -1,6 +1,6 @@
 import { useState } from "react";
-import Filters from "../Filters";
-import CharacterList from "../CharacterList";
+import Filters from "../filter/Filters";
+import CharacterList from "../character/CharacterList";
 
 function Home({characters}) {
 
@@ -18,9 +18,7 @@ function Home({characters}) {
         setSearchName={setSearchName}
         setSearchHouse={setSearchHouse}
       />
-      <section>
-        <CharacterList filteredCharacters={filteredCharacters}/>
-      </section>
+      <CharacterList filteredCharacters={filteredCharacters}/>
     </>
   );
 }
