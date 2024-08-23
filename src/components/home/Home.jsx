@@ -18,7 +18,7 @@ function Home({characters}) {
         setSearchName={setSearchName}
         setSearchHouse={setSearchHouse}
       />
-      <CharacterList filteredCharacters={filteredCharacters}/>
+      <CharacterList filteredCharacters={filteredCharacters} searchName={searchName}/>
     </>
   );
 }
