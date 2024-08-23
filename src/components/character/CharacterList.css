@@ -9,3 +9,11 @@
 .character_list {
   list-style-type: none;
 }
+
+.character_list_error {
+  margin-top: 40px;
+  display: flex;
+  justify-content: center;
+  color: #D90429;
+  font-size: 20px;
+}

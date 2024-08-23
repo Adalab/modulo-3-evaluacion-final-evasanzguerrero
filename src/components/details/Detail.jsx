@@ -31,12 +31,13 @@ function Detail({findCharacterByID}) {
   }
   if(character === undefined) {
     return (
-      <div>
-        <Link to="/"  className="volver" >Volver</Link>
-        <p>No se ha encontrado el personaje</p>
+      <div className='container_details'>
+        <Link to="/" className="back" >Volver</Link>
+        <div className="details_error">No se ha encontrado el personaje</div>
       </div>
     );
   }
+
   return (
     <>
       <div className="container_details">
