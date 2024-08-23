@@ -7,7 +7,7 @@ import Footer from './footer/Footer';
 function App() {
   
   return (
-    <div>
+    <div className="app">
       <Header harryLetter={harryLetter}/>
       <Main/>
       <Footer />

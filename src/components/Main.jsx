@@ -23,7 +23,7 @@ function Main() {
   }
 
   return (
-    <main>
+    <main className="main">
       <Routes>
         <Route path='/' element={<Home characters={characters}/>}/>
         <Route path='/detail/:id' element={<Detail findCharacterByID={findCharacterByID}/>}/>

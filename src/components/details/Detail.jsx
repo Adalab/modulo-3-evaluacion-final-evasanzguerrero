@@ -40,9 +40,9 @@ function Detail({findCharacterByID}) {
   return (
     <>
       <div className="container_details">
-        <Link to="/"  className="return" >Volver</Link>
+        <Link to="/"  className="back" >Volver</Link>
         <img
-          className="character_img info_img"
+          className="detail_img"
           src={
             character.image ||
             "https://www.lavanguardia.com/andro4all/hero/2024/02/harry-potter.1708702569.2268.jpg?width=768&aspect_ratio=16:9&format=nowebp"
