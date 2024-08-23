@@ -1,0 +1,11 @@
+.container_ul {
+  display: grid;
+  grid-template-columns: repeat(3, 300px);
+  justify-content: center;
+  margin-top: 50px;
+  gap:50px;
+}
+
+.character_list {
+  list-style-type: none;
+}

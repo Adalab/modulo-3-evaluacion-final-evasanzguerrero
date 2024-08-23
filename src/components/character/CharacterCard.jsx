@@ -1,3 +1,4 @@
+import './CharacterCard.css'
 import { Link } from 'react-router-dom';
 
 function CharacterCard({character}) {
@@ -12,9 +13,9 @@ function CharacterCard({character}) {
           }
           alt={`Imagen de ${character.name}`}
         />
-        <div className="character_info">
-          <h2 className="character">{character.name}</h2>
-          <p className="character">{character.species}</p>
+        <div className="character_description">
+          <h2 className="character_info ">{character.name}</h2>
+          <p className="character_info">{character.species}</p>
         </div>
       
     </Link>

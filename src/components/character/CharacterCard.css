@@ -1,0 +1,27 @@
+.character {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: grey;
+  text-decoration: none;
+}
+
+.character_img {
+  width: 300px;
+  height: 400px;
+}
+
+.character_description {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 280px;
+  height: 100px;
+}
+
+.character_info {
+  font-size: 30px;
+  color:white;
+  align-items: flex-start;
+}

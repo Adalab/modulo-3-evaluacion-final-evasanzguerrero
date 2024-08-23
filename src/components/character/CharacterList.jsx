@@ -1,3 +1,4 @@
+import './CharacterList.css'
 import CharacterCard from "./CharacterCard";
 
 function CharacterList({ filteredCharacters, searchName }) {
@@ -8,7 +9,7 @@ function CharacterList({ filteredCharacters, searchName }) {
   }
   return (
     <section>
-      <ul className="containerUl">
+      <ul className="container_ul">
         {filteredCharacters.map((character) => (
         <li className="character_list" key={character.id}>
           <CharacterCard character={character} />
