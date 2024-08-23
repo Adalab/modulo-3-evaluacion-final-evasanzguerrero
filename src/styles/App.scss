@@ -85,7 +85,7 @@
   outline: none;
   background-color:#e3e4e5;
   font-size: 30px;
-  
+  gap:50px
 }
 
 .select_house {
@@ -97,7 +97,6 @@
   border:none;
   border: 3px solid black;
   outline: none;
-  
 }
 
 .select_container {
@@ -105,13 +104,47 @@
   justify-content: center;
   font-size: 50px;
   margin-top: 10px;
-  gap:30px
+  gap: 40px
 }
 
 .options {
   font-size: 200px;
-  
 }
+.container_details {
+  width: 850px;
+  height: 500px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction:row;
+  background-color:#333c87;
+  gap:50px;
+  margin-left: 440px;
+  margin-top: 100px;
+  position: relative;
+} 
+.info_img {
+  width: 400px;
+  height: 400px;
+}
+
+.info_detail {
+  color: white;
+  font-size: 30px;
+}
+
+.return {
+  color: black;
+  position: absolute;
+  top: -30px;
+  right: 20px;
+}
+
+.details {
+  color:white
+}
+
+
 
 
 
