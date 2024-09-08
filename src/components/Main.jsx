@@ -19,7 +19,8 @@ function Main() {
     if(characters.length === 0) {
       return getCharacterByID(id);
     }
-    return characters.find(character => character.id === id);
+    const character = characters.find(character => character.id === id)
+    return Promise.resolve([character]);
   }
 
   return (

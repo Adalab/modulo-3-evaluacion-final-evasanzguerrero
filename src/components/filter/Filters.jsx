@@ -1,64 +1,36 @@
 import './Filters.css';
 
-function Filters({ searchName, setSearchName, searchGender, setSearchGender, searchHouse, setSearchHouse }) {
+function Filters({ everythingFilters, handleInput, handleReset }) {
 
-  const handleFilterCharactersByName = (ev) => {
-    ev.preventDefault();
-    const searchName = ev.currentTarget.value;
-    setSearchName(searchName);
-    localStorage.setItem("searchName", searchName);
-  };
-
-  const handleFilterCharactersByGender = (ev) => {
-    ev.preventDefault();
-    const searchGender = ev.currentTarget.value;
-    setSearchGender(ev.currentTarget.value);
-    localStorage.setItem("searchGender", searchGender);
-  };
-
-  const handleFilterCharactersByHouse = (ev) => {
-    ev.preventDefault();
-    const searchHouse = ev.currentTarget.value;
-    setSearchHouse(searchHouse);
-    localStorage.setItem("searchHouse", searchHouse);
-  };
-
-  const handleSubmit = (ev) => {
-    ev.preventDefault();
-  };
-
-  const handleReset = (ev) => {
-    setSearchGender("");
-    setSearchHouse("");
-    setSearchName("");
-    localStorage.setItem("searchHouse", "");
-    localStorage.setItem("searchGender", "");
-    localStorage.setItem("searchName", "");
+  const handleKeyDown = (ev) => {
+    if(ev.key === 'Enter') {
+      ev.preventDefault();
+    }
   };
 
   return (
     
     <div className="search_container">
-      <form onSubmit={handleSubmit}>
+      <form  onKeyDown={handleKeyDown}>
         <div className="search">
-          <label htmlFor="search_by_name">Busca por personaje: </label>
+          <label htmlFor="nameFilter">Busca por personaje: </label>
           <input
             className="search_form"
-            value={searchName}
-            onInput={handleFilterCharactersByName}
+            value={everythingFilters.nameFilter}
+            onInput={handleInput}
             type="text"
-            name="search"
-            id="search"
+            name="nameFilter"
+            id="nameFilter"
           />
         </div>
         <div className="search search_margin">
-          <label htmlFor="search_by_gender">Busca por género: </label>
+          <label htmlFor="genderFilte">Busca por género: </label>
           <select
-            value={searchGender}
+            value={everythingFilters.genderFilter}
             className="search_form"
-            name="gender"
-            id="gender"
-            onChange={handleFilterCharactersByGender}
+            name="genderFilter"
+            id="genderFilter"
+            onChange={handleInput}
           >
             <option value=""></option>
             <option value="female">Mujer</option>
@@ -66,13 +38,13 @@ function Filters({ searchName, setSearchName, searchGender, setSearchGender, sea
           </select>
         </div>
         <div className="search search_margin">
-          <label htmlFor="label_house">Selecciona una casa: </label>
+          <label htmlFor="houseFilter">Selecciona una casa: </label>
           <select
-            value={searchHouse}
+            value={everythingFilters.houseFilter}
             className="search_form"
-            name="house"
-            id="house"
-            onChange={handleFilterCharactersByHouse}
+            name="houseFilter"
+            id="houseFilter"
+            onChange={handleInput}
           >
             <option value="gr">Gryffindor</option>
             <option value="sl">Slytherin</option>

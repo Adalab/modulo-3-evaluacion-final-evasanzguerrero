@@ -1,3 +1,4 @@
+import { useEffect, useState } from 'react';
 import './Detail.css';
 import { Link } from "react-router-dom";
 import { useParams } from "react-router-dom";
@@ -5,30 +6,33 @@ import { useParams } from "react-router-dom";
 function Detail({findCharacterByID}) {
 
   const params = useParams();
-  const character = findCharacterByID(params.id);
+  const [character, setCharacter] = useState(null);
+  const [loading, setLoading] = useState(true);
+
+  useEffect ( () => {
+    findCharacterByID(params.id)
+     .then(responsedata => {
+      setCharacter(responsedata[0]);
+      setLoading(false)
+    });
+  } , []);
 
   const translateAlive = (alive) => {
-    if (alive) {
-      return 'Vivo';
-    } else {
-      return 'Muerto';
-    }
+    return alive ? 'Vivo' : 'Muerto';
   }
 
   const translaterGender = (gender) => {
-    if (gender === 'female') {
-      return 'Femenino';
-    } else {
-      return 'Masculino';
-    }
+    return gender === 'female' ?  'Femenino' : 'Masculino';
   }
+  
   const translateSpecies = (especies) => {
-    if (especies === 'female') {
-      return 'Humana';
-    } else {
-      return 'Humano';
-    } 
+    return especies === 'female' ? 'Humana' : 'Humano';
   }
+
+  if (loading) {
+    return <div className='container_details'>Loading...</div>;
+  }
+
   if(character === undefined) {
     return (
       <div className='container_details'>

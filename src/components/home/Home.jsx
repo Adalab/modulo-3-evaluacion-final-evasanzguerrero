@@ -4,18 +4,37 @@ import CharacterList from "../character/CharacterList";
 
 function Home({characters}) {
 
-  const [ searchName, setSearchName ] = useState('');
-  const [ searchGender, setSearchGender ] = useState('');
-  const [ searchHouse, setSearchHouse ] = useState('gr');
+  const [ everythingFilters, setEverythingFilters ] = useState( {
+    nameFilter: "",
+    genderFilter: "",
+    houseFilter: "gr"
+  } );
 
-  const nameFilter = searchName || localStorage.getItem("searchName");
-  const genderFilter = searchGender || localStorage.getItem("searchGender");
-  const houseFilter = localStorage.getItem("searchHouse") || searchHouse;
+  const handleReset = (ev) => {
+    ev.preventDefault();
+    setEverythingFilters( {
+      nameFilter: "",
+      genderFilter: "",
+      houseFilter: "gr"
+    } );
+    localStorage.removeItem("dataFilter");
+  };
+
+  const handleInput = (ev) => {
+    const key = ev.currentTarget.name;
+    const newFilters = { ...everythingFilters, [key]: ev.currentTarget.value };
+    setEverythingFilters(newFilters);
+    localStorage.setItem("dataFilter", JSON.stringify(newFilters));
+  };
+
+  const dataFilter = localStorage.getItem("dataFilter")
+  const filters = dataFilter ? JSON.parse(dataFilter) : everythingFilters
 
   const filteredCharacters = characters
-      .filter(characterObj => houseFilter === 'NS/NC' || characterObj.house.toLocaleLowerCase().startsWith(houseFilter.toLocaleLowerCase()))
-      .filter(characterObj => genderFilter === "" || characterObj.gender.toLocaleLowerCase() === genderFilter.toLocaleLowerCase())
-      .filter(characterObj => characterObj.name.toLocaleLowerCase().includes(nameFilter)).sort((a, b) => {
+      .filter(characterObj => filters.houseFilter === 'NS/NC' || characterObj.house.toLocaleLowerCase().startsWith(filters.houseFilter.toLocaleLowerCase()))
+      .filter(characterObj => filters.genderFilter === "" || filters.genderFilter == null || characterObj.gender.toLocaleLowerCase() === filters.genderFilter.toLocaleLowerCase())
+      .filter(characterObj => filters.nameFilter == null || characterObj.name.toLocaleLowerCase().includes(filters.nameFilter))
+      .sort((a, b) => {
         if (a.name < b.name) {
           return -1;
         }
@@ -28,14 +47,11 @@ function Home({characters}) {
   return (
     <>
       <Filters 
-        searchName={nameFilter}   
-        setSearchName={setSearchName}
-        searchGender={genderFilter}
-        setSearchGender={setSearchGender}
-        searchHouse={houseFilter}
-        setSearchHouse={setSearchHouse}
+        everythingFilters={filters}
+        handleInput={handleInput}
+        handleReset={handleReset}
       />
-      <CharacterList filteredCharacters={filteredCharacters} searchName={searchName}/>
+      <CharacterList filteredCharacters={filteredCharacters} nameFilte={filters.nameFilter}/>
     </>
   );
 }
