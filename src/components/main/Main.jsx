@@ -1,8 +1,9 @@
 import {Routes, Route} from 'react-router-dom';
-import Home from "./home/Home";
-import Detail from './details/Detail';
+import Home from "../home/Home";
+import Detail from '../details/Detail';
 import {useState, useEffect} from "react";
-import { getCharacterByID, getCharactersApi } from '../services/charactersApi';
+import { getCharacterByID, getCharactersApi } from '../../services/charactersApi';
+import './Main.css';
 
 function Main() {
 
